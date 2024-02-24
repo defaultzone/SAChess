@@ -121,11 +121,9 @@ method BoardStreamer::new(token, gameId, board) {
 
 BoardStreamer.postReject = fn (status) {
     if status.error {
-        BoardStreamer.state = false
-        BoardStreamer.error = status.error
-        return sampAddChatMessage(u8::decode(BoardStreamer.error), -1)
+        print(boardStreamer.error)
     } elseif status.warning {
-        sampAddChatMessage(u8::decode(status.warning), -1)
+        print(status.warning)
     }
 }
 
@@ -313,8 +311,6 @@ method BoardStreamer::move(move, promotion) {
                coordinates::render($[2], self.board.sideToMove) ..
                ((promotion) ? models::getChar(promotion) : '')
     }
-
-    print("move")
 
     requests::postLichess("/api/board/game/" .. self.gameId .. "/move/" .. move, self.token, self.postReject)
 }
