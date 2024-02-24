@@ -1,4 +1,5 @@
-<center><img src="https://github.com/defaultzone/sachess/assets/98385732/cd520e06-b315-4ade-9f13-b266b81b765f"/></center>
+![](https://github.com/defaultzone/SAChess/assets/98385732/6100a30d-d5e5-4f5c-8b93-62fdf84c99d7)
+
 
 
 # SAChess - implementation of the Lichess API for GTA: San Andreas with ImGui.
