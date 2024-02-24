@@ -4,7 +4,7 @@
 
 # SAChess - implementation of the Lichess API for GTA: San Andreas with ImGui.
 
-**SAChess is a free and open souce** implementation of the Lichess API in Lua dialect - Clue. You can
+**SAChess is a free and open source** implementation of the Lichess API in Lua dialect - Clue. You can
 play it directly in the game with ImGui interface. It features board streaming, seek creating,
 draw handling, resigning or aborting games.
 

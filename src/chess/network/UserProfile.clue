@@ -73,7 +73,9 @@ method UserProfile::update(onUpdate, onError) {
                 local account = decodeJson(response.text)
 
                 for perf, _ of self.ratings {
-                    self.ratings[perf] = account.perfs[perf].rating
+                    if account.perfs[perf]?.rating {
+                        self.ratings[perf] = account.perfs[perf].rating
+                    }
                 }
 
                 for type, _ of self.games {

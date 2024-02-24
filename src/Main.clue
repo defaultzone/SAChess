@@ -22,10 +22,11 @@
 @import "Compressed"      => compressed
 @import "Timers"          => timers
 
-@define SACHESS_VERSION "0.0-PREVIEW"
+@define SACHESS_VERSION "1.0"
 
 static ffi      = require("ffi")
 static imgui    = require("mimgui")
+static wm       = require("windows.message")
 static effil    = require("effil")
 static encoding = require("encoding")
 static u8       = encoding.UTF8
@@ -51,6 +52,14 @@ imgui.OnInitialize(fn {
 
     style::apply()
 })
+
+global fn onWindowMessage(event, wparam) {
+    if (event == wm.WM_KEYDOWN || event == wm.WM_SYSKEYDOWN) && wparam == VK_ESCAPE && mainWindowState {
+        mainWindowState = false
+        consumeWindowMessage(true, false)
+        return
+    }
+}
 
 global fn main() {
     while !isSampAvailable() { wait(0) }
