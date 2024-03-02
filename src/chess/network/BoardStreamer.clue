@@ -122,8 +122,6 @@ method BoardStreamer::new(token, gameId, board) {
 BoardStreamer.postReject = fn (status) {
     if status.error {
         print(boardStreamer.error)
-    } elseif status.warning {
-        print(status.warning)
     }
 }
 

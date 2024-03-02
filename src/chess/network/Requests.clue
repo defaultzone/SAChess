@@ -97,11 +97,10 @@ method requests::postLichess(directive, token, reject = fn {}, arguments = {}) {
             }
 
             if status.error {
-                reject(status)
+                return reject(status)
             }
-        }, fn (warning) {
-            status.warning = warning
-            reject(status)
+        }, fn {
+            return self::postLichess(directive, token, reject, arguments)
         })
     })
 }
